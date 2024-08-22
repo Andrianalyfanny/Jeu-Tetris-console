@@ -1,17 +1,26 @@
-export class Grille {
-    constructor(){
-        this.ligne = 20;
-        this.col = 10;
-        this.grille = this.createGrille();
-    }
+export const col = 10;
+export const ligne = 20;
+export const EMPTY = ' ';
+export const BLOCK = '#';
 
-    createGrille (){
-        return Array.from({length: this.ligne},()=> Array(this.col).fill(0)); // cree le tableu a 2 dimensions
-    }
+export let board = Array.from({ length: ligne }, () => Array(col).fill(EMPTY));
 
-    drawGrille(piece){
+export function drawBoard() {
+  console.clear();
+  board.forEach(row => console.log(row.join('')));
+}
 
-        piece.forme.forEach((row, r))
+export function clearBoard() {
+  board = Array.from({ length: ligne }, () => Array(col).fill(EMPTY));
+}
 
-    }
+export function isRowFull(row) {
+  return row.every(cell => cell === BLOCK);
+}
+
+export function removeFullRows() {
+  board = board.filter(row => !isRowFull(row));
+  while (board.length < ligne) {
+    board.unshift(Array(col).fill(EMPTY));
+  }
 }
