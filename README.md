@@ -3,6 +3,6 @@
 
     node src/jeu.js
 
- **a** : Déplacer la pièce vers la gauche
- **d** : Déplacer la pièce vers la droite
- **s** : Accélérer la descente de la pièce
+ **a** + **Enter** : Déplacer la pièce vers la gauche
+ **d**+ **Enter** : Déplacer la pièce vers la droite
+ **s**+ **Enter** : Accélérer la descente de la pièce
