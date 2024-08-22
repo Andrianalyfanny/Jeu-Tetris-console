@@ -12,22 +12,27 @@ let currentX = 4, currentY = 0;
 let gameInterval;
 
 function movePiece(dx, dy) {
-  if (!checkCollision(currentX + dx, currentY + dy, currentPiece)) {
+ // if (!checkCollision(currentX + dx, currentY + dy, currentPiece)) {
     currentX += dx;
     currentY += dy;
     updateBoard();
-  if (dy > 0) {
+  /*} else if (dy > 0) {
+    
     fixPiece();
     resetPiece();
-  }
+  }*/
 }
-
 
 function checkCollision(x, y, tetromino) {
   for (let i = 0; i < tetromino.length; i++) {
     for (let j = 0; j < tetromino[i].length; j++) {
       if (tetromino[i][j]) {
-        if (y + i >= board.length || x + j < 0 || x + j >= board[0].length || board[y + i][x + j] === BLOCK) {
+        if (
+          y + i >= board.length || 
+          x + j < 0 ||              
+          x + j >= board[0].length ||
+          board[y + i][x + j] === BLOCK 
+        ) {
           return true;
         }
       }
